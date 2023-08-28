@@ -39,7 +39,7 @@ const Home = () => {
     useEffect(()=>{
 
 
-        fetch('https://backend-dundo.onrender.com//getServices')
+        fetch('https://backend-dundo.onrender.com/getServices')
         .then(response => response.json())
         .then(response =>{ setData(response)} )
  
