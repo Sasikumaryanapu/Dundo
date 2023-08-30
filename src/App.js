@@ -9,17 +9,17 @@ import {useSelector,useDispatch} from 'react-redux'
 import {addUser} from './slicer'
 
 function App() {
-  const data=useSelector((state)=>state.value)
+  // const data=useSelector((state)=>state.value)
 
-  console.log(data)
-const dispatch=useDispatch()
-const Handle=()=>{
-  dispatch(addUser({email:"ds"}))
-}
+  // console.log(data)
+// const dispatch=useDispatch()
+// const Handle=()=>{
+//   dispatch(addUser({email:"ds"}))
+// }
   return (
     <div className="App">
-      <button onClick={Handle}>cahnge</button>
-      <h2>Start editing to see some magic happen!</h2>
+      {/* <button onClick={Handle}>cahnge</button>
+      <h2>Start editing to see some magic happen!</h2> */}
        <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/display' element={<Display/>}/>

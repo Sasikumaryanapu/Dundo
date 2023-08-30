@@ -131,7 +131,7 @@ const Register = ({register_off}) => {
          return errors;
        }}
        onSubmit={(values, { setSubmitting }) => {
-        // https://backend-dundo.onrender.com
+        // 
         fetch('https://backend-dundo.onrender.com/addservice',{
         method:"POST",
         headers:{
