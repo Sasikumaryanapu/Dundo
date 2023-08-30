@@ -2,7 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { Formik } from 'formik';
 import { useRef } from 'react';
 
+import {useSelector,useDispatch} from 'react-redux'
+import {addUser} from '../slicer'
+
 const Register = ({register_off}) => {
+
+  const data=useSelector((state)=>state.value)
+  const dispatch=useDispatch() 
+
+  console.log(data)
+
+  const HandleUser=(user)=>{
+  dispatch(addUser({email:user}))
+}
 
     var service={}
 
@@ -119,7 +131,8 @@ const Register = ({register_off}) => {
          return errors;
        }}
        onSubmit={(values, { setSubmitting }) => {
-        fetch('http://localhost:5000/addservice',{
+        // https://backend-dundo.onrender.com
+        fetch('https://backend-dundo.onrender.com/addservice',{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -129,9 +142,10 @@ const Register = ({register_off}) => {
     })
   .then(response => response.json())
   .then(response => {
-    console.log(response)
-   
-   })
+    console.log(response.email)
+   }).catch(error => console.log(error) )
+
+   HandleUser(values.email)
   setSubmitting(false)
   register_off(false)
 

@@ -16,8 +16,12 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import Login from '../Login'
 import Register from '../Register'
 
+import {useSelector,useDispatch} from 'react-redux'
 
 const Home = () => {
+
+    //redux
+    const userData=useSelector((state)=>state.value)
 
     const [menuFlag,setMenuFlag]=useState(false)
     const [searchbar,setSearchbar]=useState(false)
@@ -354,6 +358,7 @@ const Home = () => {
                     <li>
                         <p onClick={()=>setLogin(true)}>Login/Sign Up</p>
                     </li>
+                    <li> {userData[0]?.email ? <a onClick={()=>navigate('/cart')} >Cart</a>:null} </li>
                 </ul>
             </div>
 
